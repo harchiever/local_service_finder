@@ -1,0 +1,3 @@
+# This directory stores uploaded service images.
+# Files in this folder are ignored by git (see .gitignore).
+# The directory itself must exist for PHP file uploads to work.
