@@ -394,3 +394,28 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProviders();
   renderTestimonials();
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("contactName").value;
+    const service = document.getElementById("contactService").value;
+
+    console.log(name, service); // debug
+
+    const res = await fetch("http://localhost:3000/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, service })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+  });
+});
